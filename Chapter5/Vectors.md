@@ -51,19 +51,45 @@ Ans. A set of vectors $\{ v_{1}, v_{2}, ..., v_{n} \}$ is said to form a **basis
 Ans. Let matrix  $A$ consists of n vectors side-by-side as columns then this matrix is of $d \times n$ dimensions. Suppose the 
      vectors that constitute this matrix are linearly independent, then:
     
-     - The span of the rows of a matrix is called the **row space** of the matrix. The dimension of the row space is the 
-       **rank** of the matrix (herein, rank = d)
+     - The span of the rows of a matrix is called the **row space** of the matrix. The dimension of the row space is the 
+       **rank** of the matrix (herein, rank = d)
     
-     - The span of the columns of a matrix is called the **range** or the **column space** of the matrix (herein, column 
+     - The span of the columns of a matrix is called the **range** or the **column space** of the matrix (herein, column 
        space = n). *The row space and the column space always have the same dimension*.
    
 7. Norms and metrics
 	
    i. [E] What's a norm? What is $L_0, L_1, L_2, L_{norm}$?
 
-   Ans. 
+   Ans. In mathematics, a norm is a function from a real or complex vector space to the non-negative real numbers that
+   behaves in certain ways like the distance from the origin. It is a measure of the "length" of the vector.
+
+     Formally, a norm is any function $\mathbb{R}^{n} \rightarrow \mathbb{R}$ that satisfies the following 4 properties:
 	
+	 a. For all $x \in \mathbb{R}^{n}, f(x) \ge 0$ (non-negativity).
+	 b. $f(x) = 0$ if and only if x = 0 (definiteness).
+	 c. For all $x \in \mathbb{R}^{n}, t \in \mathbb{R}, f(tx) = |t|f(x)$ (homogeneity).
+	 d. For all $x, y \in \mathbb{R}^{n}, f(x + y) \le f(x) + f(y)$ (triangle inequality).
+	 
+   Source: https://www.wikiwand.com/en/Norm_(mathematics), https://cs229.stanford.edu/summer2020/cs229-linalg.pdf
+
+  * $L_0$: Strictly speaking, $L_0$ norm is not a norm. It is a cardinality function that has its definition in the form of $l_p-norm$, though many people call it a norm.  
+  
+  * $L_1$: The Manhattan distance is the sum of the magnitudes of the vectors in space. It is the most natural way of measure distance between vectors, that is the sum of the absolute difference of the components of the vectors.
+                   $||x||_{1} = \sum_{i=1}^n |x_{i}|$
+
+* $L_2$: The Euclidean distance of a vector from the origin is a norm, called the Euclidean norm, or 2-norm, which may also be defined as the square root of the inner product of a vector with itself.
+			$||x||_{2} = \sqrt{\sum_{i=1}^n x_{i}^{2} }$
+
+* $L_{norm}$: Also known as $\textit{infinite norm}$. Consider the vector $\boldsymbol{x}$, let’s say if $x_j$ is the highest entry in the vector $\boldsymbol{x}$, by the property of the infinity itself, we can say that is the maximum entries’ magnitude of that vector. 
+	  	$||x||_{\infty} = max_{i}|x_{i}|$
+	  	
   ii. [M] How do norm and metric differ? Given a norm, make a metric. Given a metric, can we make a norm?
+
+  Ans. A metric measures distances between *pairs of things* while a **norm** measures the size of a single item. Metrics can be defined on pretty much anything, while the notion of a norm applies only to vector spaces: the very definition of a norm requires that the things measured by the norm could be added and scaled. If you have a norm, you can define a metric by saying that the distance between **a** and **b** is the size of **a** - **b**. 
+
+	 $d(a,b) = ∥a−b∥$
+On the other hand, if you have a metric you can't usually define a norm.
 
 References: 
 
