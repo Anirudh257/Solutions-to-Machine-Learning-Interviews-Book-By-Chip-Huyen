@@ -38,25 +38,17 @@ Ans.  A set of two vectors is linearly independent if and only if neither of the
 4. [M] Given two sets of vectors $A = {a_1, a_2, a_3, ..., a_n}$ and $B = {b_1, b_2, b_3, ... , b_m}$. How do you check that
    they share the same basis?
 
-Ans. A set of vectors $\{ v_{1}, v_{2}, ..., v_{n} \}$ is said to form a **basis for a vector space** if:
-     
-    * The vectors $\{ v_{1}, v_{2}, ..., v_{n} \}$ span the vector space.
-    
-    * The vectors $\{ v_{1}, v_{2}, ..., v_{n} \}$ are linearly independent.
+Ans. 
 
-    Then, show that they span the same space.
+![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/96fc1b8f-f78e-40a3-9ad9-12b138614d22)
+
  
 5. [M] Given $n$ vectors, each of $d$ dimensions. What is the dimension of their span?
 
-Ans. Let matrix  $A$ consists of n vectors side-by-side as columns then this matrix is of $d \times n$ dimensions. Suppose the 
-     vectors that constitute this matrix are linearly independent, then:
-    
-     - The span of the rows of a matrix is called the **row space** of the matrix. The dimension of the row space is the 
-       **rank** of the matrix (herein, rank = d)
-    
-     - The span of the columns of a matrix is called the **range** or the **column space** of the matrix (herein, column 
-       space = n). *The row space and the column space always have the same dimension*.
-   
+![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/77295c58-e045-4f58-8b7f-d35d63b5f325)
+
+span = min(n, d).
+
 7. Norms and metrics
 	
    i. [E] What's a norm? What is $L_0, L_1, L_2, L_{norm}$?
