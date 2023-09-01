@@ -3,29 +3,9 @@
 
 1. Why do we say that matrices are linear transformations?
 
-Ans. A vector multiplied by a matrix ends up as a vector.
+Ans. 
 
-For example, take a matrix 
-$$
-\begin{align*}
-  A = \left[
-    \begin{array}{rrr}
-      1 & 0 & -1\\
-      3 & 1 & 2
-    \end{array}
-  \right].
-\end{align*}
-$$
-
-$$
-\begin{align*} A{x} = \left[ \begin{array}{rrr} 1 & 0 & -1\\ 3 & 1 & 2 \end{array} \right] \left[ \begin{array}{c} x\\ y\\ z \end{array} \right] = \left[ \begin{array}{c} x - z\\ 3x + y +2z \end{array} \right] =(x-z,3x+y+2z). \end{align*}
-$$
-
-We can define this as a function $\mathbf{f(x)} = \mathbf{Ax}$ and ${f} : \R^3 \to \R^2$.
-
-This can be extended to a general case for ${f} : \R^n \to \R^m$. Each matrix can be extended to a function. But only **special** functions can be mapped to a matrix, known as **linear transformation**. The function **g(x)** is a linear transformation if each term of each component of **g(x)** is a number times one of the variables.
-
-For example, the functions $\mathbf{f}(x, y) = (2x + y, y/2)$ is a linear transformation while $\mathbf{f}(x, y) = (x^{2}, y, x)$ is not a linear transformation.
+![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/9aced0d6-dbce-4c56-adc4-d59d3f822bc6)
 
 Source: https://mathinsight.org/matrices_linear_transformations
 
@@ -34,9 +14,8 @@ Source: https://mathinsight.org/matrices_linear_transformations
 Ans. The inverse of a matrix $A$ is another matrix $A^{-1}$ such that the product of $A$ and $A^{-1}$ is the identity matrix.
 
 Some important properties of the inverse are:
-$$
-\begin{array}{l}A{A}^{-1}=I\\ {A}^{-1}A=I\end{array} 
-$$
+
+![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/cea9e690-064d-458a-9e49-714f729de664)
 
 Only square matrices may have a multiplicative inverse. Not all square matrices have an inverse, but if $A$ is invertible, then $A^{−1}$ is unique.
 
@@ -72,37 +51,17 @@ $tr(A) = \lambda_1 + \lambda_2 + \lambda_3 + \lambda_4$ and $det(A) = \lambda_1\
 Therefore, $tr(A) = 3 + 3+ 2-1 = 7$ and $det(A) = 3.3.2.-1 = -18$.
 
 6.  Given the following matrix:  
-    $$
-\begin{align*}
-  \left[
-    \begin{array}{rrr}
-      1 & 4 & -2\\
-      -1 & 3 & 2 \\
-      3 & 5 & -6 \\
-    \end{array}
-  \right]
-\end{align*}
-$$
+
+  ![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/4a5f8471-841b-4331-9087-0fb86a82ba78)
 
     Without explicitly using the equation for calculating determinants, what can we say about this matrix’s determinant?
     
     **Hint**: rely on a property of this matrix to determine its determinant.
 
 Ans. The 1st and 2nd columns of the matrix are multiples of each other.
-   $$
-\begin{gather}
- \begin{bmatrix} 
- -2 \\ 
- 2 \\  
- -6\\
- \end{bmatrix} = -2 \times
- \begin{bmatrix} 
- 1 \\ 
- -1 \\  
- 3\\
- \end{bmatrix}
- \end{gather}
-   $$
+
+![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/24b5fe51-d4d4-4180-ba0f-2ab604c56c12)
+   
 This makes this matrix linearly dependent and hence the determinant is 0.
 
 Source: https://study.com/academy/lesson/linear-independence-definition-examples.html#:~:text=A%20matrix%20with%20a%20determinant,one%20of%20the%20other%20equations.
@@ -111,4 +70,4 @@ Source: https://study.com/academy/lesson/linear-independence-definition-examples
 
 Ans. The covariance matrix $A^TA$ represents the pairwise covariances between the columns of the matrix A. It is symmetric and positive definite and used to measure the relationships between the different variables in data.
 
-On the other hand, the Gram matrix $AA^T$ represents the dot product between the rows of the matrix A. In kernel methods, 
+On the other hand, the Gram matrix $AA^T$ represents the dot product between the rows of the matrix A. It is useful in document classification to compute the similarity between 2 documents. 
