@@ -71,3 +71,11 @@ Source: https://study.com/academy/lesson/linear-independence-definition-examples
 Ans. The covariance matrix $A^TA$ represents the pairwise covariances between the columns of the matrix A. It is symmetric and positive definite and used to measure the relationships between the different variables in data.
 
 On the other hand, the Gram matrix $AA^T$ represents the dot product between the rows of the matrix A. It is useful in document classification to compute the similarity between 2 documents. 
+
+8. Given $A \in \mathbb{R}^{m \times n}$ and $b \in \mathbb{R}^n$
+
+ i. [M] Find $x$ such that $Ax = b$.
+
+Ans.  If $x$ is invertible, it is straightforward to compute $x = A^{-1}b$, else it is not possible to compute inverse.
+
+We can also use Gaussian elimination, matrix decomposition or numerical methods to compute $x$.
