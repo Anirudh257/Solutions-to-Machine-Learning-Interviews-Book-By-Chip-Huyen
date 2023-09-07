@@ -79,3 +79,13 @@ On the other hand, the Gram matrix $AA^T$ represents the dot product between the
 Ans.  If $x$ is invertible, it is straightforward to compute $x = A^{-1}b$, else it is not possible to compute inverse.
 
 We can also use Gaussian elimination, matrix decomposition or numerical methods to compute $x$.
+
+ii. [E] When does this have a unique solution?
+
+Ans.  It depends on these two scenarios:
+
+a) If A is a square matrix (m == n), and matrix A has full rank, all the column vectors are independent and span the entire m-dimensional column space. 
+
+b) If A is a tall matrix (m > n), and matrix A has full rank, the solution is unique only if b lies in the span(A)
+
+Reference: https://medium.com/@tseek2021/a-quick-summary-of-all-types-of-solutions-to-system-of-linear-equations-6501cc51673c
