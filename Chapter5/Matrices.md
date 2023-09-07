@@ -84,8 +84,8 @@ ii. [E] When does this have a unique solution?
 
 Ans.  It depends on these two scenarios:
 
-a) If A is a square matrix (m == n), and matrix A has full rank, all the column vectors are independent and span the entire m-dimensional column space. 
+a) If **A** is a square matrix (m == n), and matrix **A** has full rank, all the column vectors are independent and span the entire m-dimensional column space. 
 
-b) If A is a tall matrix (m > n), and matrix A has full rank, the solution is unique only if b lies in the span(A)
+b) If **A** is a tall matrix (m > n), and matrix **A** has full rank, the solution is unique only if **b** lies in the **span(A)**
 
 Reference: https://medium.com/@tseek2021/a-quick-summary-of-all-types-of-solutions-to-system-of-linear-equations-6501cc51673c
