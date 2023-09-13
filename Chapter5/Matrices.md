@@ -1,4 +1,5 @@
 
+
 ## 5.1.2 Matrices
 
 1. Why do we say that matrices are linear transformations?
@@ -86,6 +87,35 @@ Ans.  It depends on these two scenarios:
 
 a) If **A** is a square matrix (m == n), and matrix **A** has full rank, all the column vectors are independent and span the entire m-dimensional column space. 
 
-b) If **A** is a tall matrix (m > n), and matrix **A** has full rank, the solution is unique only if **b** lies in the **span(A)**
+b) If **A** is a tall matrix (m > n), and matrix **A** has full rank, the solution is unique only if **b** lies in the **span(A)**.
 
 Reference: https://medium.com/@tseek2021/a-quick-summary-of-all-types-of-solutions-to-system-of-linear-equations-6501cc51673c
+
+iii.  [M] Why is it when A has more columns than rows,  $Ax=b$  has multiple solutions?
+
+Ans. When there are more columns than rows, we are looking at the **undetermined system of equations**.  If the matrix(A) doesn't have **full rank**, i.e. rank(A) = r < min(m, n). There are only **r** independent column vectors in A and **(m - r)** dependent column vectors. If $b \in span(A)$, there exists infinite solutions to express **b**.
+
+![](https://miro.medium.com/v2/resize:fit:875/1*UGEe5hwXskPL59_DUhh5Nw.png)
+
+iv. [M] Given a matrix A with no inverse. How would you solve the equation  $Ax=b$? What is the pseudoinverse and how to calculate it?
+
+Ans. When A is not invertible, we have 2 cases:
+
+  (a) $Ax = b$ have infinite solutions.
+
+ (b) $Ax = b$ have no solution.
+
+ We can use Gaussian elimination to show that a solution/no solution exists.
+
+If we want a *close-enough/best-fit* solution, we can use a **least squares solution** and solve for  $\min_x \|Ax-b\|^2$ that will give us the **pseudo-inverse**.
+
+9. Derivative is the backbone of gradient descent.
+
+i. [E] What does derivative represent?
+
+Ans. The derivative of a function measures the sensitivity to change in the function output with respect to a change in input.
+
+When it exists, it can be mathematically described as the *slope* of the tangent line to the graph of the function at that point.  Intuitively, the derivative is the **best linear approximation** to the function at the given point.
+
+Reference: https://math.stackexchange.com/questions/3266804/how-to-solve-ax-b-wihout-inverting-a
+
