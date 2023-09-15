@@ -138,3 +138,11 @@ https://math.stackexchange.com/questions/336640/gradient-and-jacobian-row-and-co
 
 https://www.deeplearningwizard.com/deep_learning/boosting_models_pytorch/derivative_gradient_jacobian/#gradient-jacobian-and-generalized-jacobian
 
+10.  [H] Say we have the weights  $w \in \mathbb{R}^{d \times m}$ and a mini-batch $x$ of $n$ elements, each element is of the shape  $1 \times d$  so that $x \in \mathbb{R}^{n \times d}$. We have the output  $y=f(x;w)= xw$. What’s the dimension of the Jacobian  $\frac{\delta y}{\delta x}$?
+
+Ans. $y = xw \in \mathbb{R}^{n \times m}$.
+
+![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/1baf9b76-5394-4444-a8dc-5cf090bab120)
+
+
+which is of same dimensions as the input $\mathbb{R}^{n \times m}$
