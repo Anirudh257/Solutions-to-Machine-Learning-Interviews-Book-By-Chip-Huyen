@@ -1,5 +1,6 @@
 
 
+
 ## 5.1.2 Matrices
 
 1. Why do we say that matrices are linear transformations?
@@ -119,3 +120,14 @@ When it exists, it can be mathematically described as the *slope* of the tangent
 
 Reference: https://math.stackexchange.com/questions/3266804/how-to-solve-ax-b-wihout-inverting-a
 
+ii. [M] What’s the difference between derivative, gradient, and Jacobian?
+
+Ans. Derivative of a function $f : \mathbb{R}^n \to \mathbb{R}^m$ at a point $p \in \mathbb{R}^n$, if it exists, is the unique linear transformation $Df(p) \in L(\mathbb{R}^n, \mathbb{R}^m)$ such that
+
+$\lim_{h \to 0} \frac{\|f(p+h)-f(p)-Df(p)h\|}{\|h\|} = 0;$
+
+The matrix of $Df(p)$ with respect to the standard orthonormal bases of $\mathbb{R}^n$ and $\mathbb{R}^m$ is called the **Jacobian matrix** of $f$ at $p$ and lies in $M_{m \times n}(\mathbb{R})$.
+
+Gradient of a function $f: \mathbb{R}^n \to \mathbb{R}$ is a vector that points in the direction of the steepest increase of the function at the given point. It is a generalization of derivative to functions of multiple variables. It consists of partial derivatives with respect to each variable. 
+
+$\nabla_{(x,z)} = \begin{bmatrix} \frac{df(x,z)}{dx} \\ \frac{df(x,z)}{dz} \end{bmatrix}$
