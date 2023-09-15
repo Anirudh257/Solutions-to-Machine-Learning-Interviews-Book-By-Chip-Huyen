@@ -130,4 +130,11 @@ The matrix of $Df(p)$ with respect to the standard orthonormal bases of $\mathbb
 
 Gradient of a function $f: \mathbb{R}^n \to \mathbb{R}$ is a vector that points in the direction of the steepest increase of the function at the given point. It is a generalization of derivative to functions of multiple variables. It consists of partial derivatives with respect to each variable. 
 
-$\nabla_{(x,z)} = \begin{bmatrix} \frac{df(x,z)}{dx} \\ \frac{df(x,z)}{dz} \end{bmatrix}$
+![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/74d0bae1-a75a-4f3f-9519-a9a64d0bd076)
+
+Reference: 
+
+https://math.stackexchange.com/questions/336640/gradient-and-jacobian-row-and-column-conventions
+
+https://www.deeplearningwizard.com/deep_learning/boosting_models_pytorch/derivative_gradient_jacobian/#gradient-jacobian-and-generalized-jacobian
+
