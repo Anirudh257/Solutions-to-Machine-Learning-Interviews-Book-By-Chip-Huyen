@@ -144,5 +144,10 @@ Ans. $y = xw \in \mathbb{R}^{n \times m}$.
 
 ![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/1baf9b76-5394-4444-a8dc-5cf090bab120)
 
-
 which is of same dimensions as the input $\mathbb{R}^{n \times m}$
+
+Reference: 
+
+https://www.wikiwand.com/en/Jacobian_matrix_and_determinant
+
+https://www.cs.cmu.edu/~10315-s20/recitation/rec2_sol.pdf
