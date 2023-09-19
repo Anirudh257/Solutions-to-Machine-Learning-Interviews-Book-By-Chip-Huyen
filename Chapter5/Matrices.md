@@ -147,7 +147,20 @@ Ans. $y = xw \in \mathbb{R}^{n \times m}$.
 which is of same dimensions as the input $\mathbb{R}^{n \times m}$
 
 Reference: 
-
 https://www.wikiwand.com/en/Jacobian_matrix_and_determinant
 
 https://www.cs.cmu.edu/~10315-s20/recitation/rec2_sol.pdf
+
+11. [H] Given a very large symmetric matrix A that doesn’t fit in memory, say $A \in R^{1M \times 1M}$ and a function $f$ that can quickly compute $f(x) = Ax$ for $x \in R^{1M}$. Find the unit vector $x$ so that $x^TAx$ is minimal.
+	
+	**Hint**: Can you frame it as an optimization problem and use gradient descent to find an approximate solution?
+
+Ans. By framing it as an optimization problem, we can define the objective function as $J(x) = x^TAx$ and find the corresponding $x$ that minimizes $J(x)$. By using gradient descent, we can initialize with some $x_{init}$ and keep updating the value using the formula: $x_{new} = x_{init} - \alpha\nabla J$ and  $\nabla J = 2Ax$.
+
+For large symmetric matrices, we can randomly sample a subset of data to compute $Ax$ at each iteration. 
+
+Or we can use this approach from https://github.com/starzmustdie/ml-interview-questions-and-answers/blob/main/ML_interview_questions_and_answers.pdf
+
+![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/7e78af58-d910-4586-ade9-73d7947844ba)
+
+
