@@ -24,3 +24,5 @@ Ans. No, Eigendecomposition of a matrix is not always unique. It is not always u
 Example from https://github.com/starzmustdie/ml-interview-questions-and-answers/blob/main/ML_interview_questions_and_answers.pdf
 
 ![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/c7b07de8-6aa9-47d5-81bd-6b6d82bd1595)
+
+Reference: https://www.cs.toronto.edu/~rgrosse/courses/csc411_f18/tutorials/tut4_slides.pdf
