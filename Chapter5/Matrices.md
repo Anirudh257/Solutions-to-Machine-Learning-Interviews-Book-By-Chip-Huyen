@@ -1,6 +1,3 @@
-
-
-
 ## 5.1.2 Matrices
 
 1. Why do we say that matrices are linear transformations?
