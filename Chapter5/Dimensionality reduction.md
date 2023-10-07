@@ -1,3 +1,5 @@
+
+
 ## 5.1.3 Dimensionality Reduction
 
 
@@ -26,3 +28,36 @@ Example from https://github.com/starzmustdie/ml-interview-questions-and-answers/
 ![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/c7b07de8-6aa9-47d5-81bd-6b6d82bd1595)
 
 Reference: https://www.cs.toronto.edu/~rgrosse/courses/csc411_f18/tutorials/tut4_slides.pdf
+
+3.  [M] Name some applications of eigenvalues and eigenvectors.
+
+Ans. Some of the important applications are:
+
+a. Singular Value Decomposition for image compression.
+
+b. Spectral clustering used in data analysis.
+
+c. Dimensionality reduction/PCA.
+
+d. Low rank factorization for collaborative prediction.
+
+e. Google Page Rank algorithm.
+
+Reference: https://math.stackexchange.com/questions/1520832/real-life-examples-for-eigenvalues-eigenvectors
+
+4.  [M] We want to do PCA on a dataset of multiple features in different ranges. For example, one is in the range 0-1 and one is in the range 10 - 1000. Will PCA work on this dataset?
+
+Ans. In PCA we are interested in the components that maximize the variance. If one component (e.g. human height) varies less than another (e.g. weight) because of their respective scales (meters vs. kilos), PCA might determine that the direction of maximal variance more closely corresponds with the ‘weight’
+axis, if those features are not scaled. Since a change in height of one meter should be considered much more important than the change in weight of one kilogram, the previous assumption would be incorrect. Therefore, it is important to standardize the features before applying PCA.
+
+5. [H] Under what conditions can one apply eigendecomposition? What about SVD?
+
+Ans. Eigendecomposition is possible only for (square) diagonalizable matrices. On the other hand, the Singular Value Decomposition (SVD) always exists (even for non-square matrices).
+
+(i).  What is the relationship between SVD and eigendecomposition?
+
+Ans. SVD is a more general matrix factorization technique than eigendecomposition. It is applicable to any matrix while eigendecomposition can only be applied to square matrices. 
+
+![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/151dd734-5f1e-4084-a344-3cfbeee77837)
+
+The left singular vectors of $A$ are the eigenvectors of $AA^T$ and the right singular vectors of $A$ are the eigenvectors of $A^TA$. If $\lambda$ is a an eigenvalue of $AA^T$ (or $A^TA$), the eigenvalues (and thus the singular values) are non-negative.
