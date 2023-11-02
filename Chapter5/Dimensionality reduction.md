@@ -66,11 +66,16 @@ Ans. As noted in the previous answer, SVD is a more general matrix factorization
 Computing PCA for the above matrix $M$ requires the calculation of a covariance matrix $M^TM$. Since this is symmetric and real-valued, an eigendecomposition is guaranteed to exist. As the SVD is also guaranteed to exist, we can equate: 
 
 $M^TM = (U \Sigma V^{T})^T(U \Sigma V^{T})$
+
 $= V\Sigma U^TU\Sigma V^{T}$
+
 $= V\Sigma \mathbb{I}\Sigma V^{T}$
- (As $U$ is an orthogonal matrix, $U^TU = \mathbb{I}$)
- $= V\Sigma^2 V^{T}$
- which is an eigendecomposition of $M^TM$ and eigenvalues of PCA are the squares of the singular values of SVD.
+
+(As $U$ is an orthogonal matrix, $U^TU = \mathbb{I}$)
+
+$= V\Sigma^2 V^{T}$
+ 
+which is an eigendecomposition of $M^TM$ and eigenvalues of PCA are the squares of the singular values of SVD.
 
 As the time complexity for eigendecomposition is $O(n^3)$, we can use SVD to compute PCA. As it doesn't involve the computation of a covariance matrix, SVD is more numerically stable.
 
