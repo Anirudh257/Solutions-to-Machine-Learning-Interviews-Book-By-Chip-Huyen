@@ -1,5 +1,3 @@
-
-
 ## 5.1.3 Dimensionality Reduction
 
 
@@ -61,3 +59,19 @@ Ans. SVD is a more general matrix factorization technique than eigendecompositio
 ![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/151dd734-5f1e-4084-a344-3cfbeee77837)
 
 The left singular vectors of $A$ are the eigenvectors of $AA^T$ and the right singular vectors of $A$ are the eigenvectors of $A^TA$. If $\lambda$ is a an eigenvalue of $AA^T$ (or $A^TA$), the eigenvalues (and thus the singular values) are non-negative.
+
+(ii) What’s the relationship between PCA and SVD?
+Ans. As noted in the previous answer, SVD is a more general matrix factorization technique. For a matrix $M \in \mathbb{R}^{m \times n}$, the SVD is defined as: $M = U \Sigma V^{T}$, where $U \in \mathbb{R}^{m \times m}$ is an orthogonal matrix,  $\Sigma \in \mathbb{R}^{m \times n}$ diagonal matrix with non-negative real numbers(singular values) on the diagonal and $V^T \in \mathbb{R}^{n \times n}$ is a transpose of orthogonal matrix. The time complexity is $O(mn^2)$.
+
+Computing PCA for the above matrix $M$ requires the calculation of a covariance matrix $M^TM$. Since this is symmetric and real-valued, an eigendecomposition is guaranteed to exist. As the SVD is also guaranteed to exist, we can equate: 
+
+$M^TM = (U \Sigma V^{T})^T(U \Sigma V^{T})$
+$= V\Sigma U^TU\Sigma V^{T}$
+$= V\Sigma \mathbb{I}\Sigma V^{T}$
+ (As $U$ is an orthogonal matrix, $U^TU = \mathbb{I}$)
+ $= V\Sigma^2 V^{T}$
+ which is an eigendecomposition of $M^TM$ and eigenvalues of PCA are the squares of the singular values of SVD.
+
+As the time complexity for eigendecomposition is $O(n^3)$, we can use SVD to compute PCA. As it doesn't involve the computation of a covariance matrix, SVD is more numerically stable.
+
+Reference: https://bastian.rieck.me/research/Note_PCA_SVD.pdf
