@@ -1,3 +1,5 @@
+
+
 ## 5.1.3 Dimensionality Reduction
 
 
@@ -61,23 +63,56 @@ Ans. SVD is a more general matrix factorization technique than eigendecompositio
 The left singular vectors of $A$ are the eigenvectors of $AA^T$ and the right singular vectors of $A$ are the eigenvectors of $A^TA$. If $\lambda$ is a an eigenvalue of $AA^T$ (or $A^TA$), the eigenvalues (and thus the singular values) are non-negative.
 
 (ii) What’s the relationship between PCA and SVD?
-
-Ans. As noted in the previous answer, SVD is a more general matrix factorization technique. For a matrix $M \in \mathbb{R}^{m \times n}$, the SVD is defined as $M = U \Sigma V^{T}$, where $U \in \mathbb{R}^{m \times m}$ is an orthogonal matrix,  $\Sigma \in \mathbb{R}^{m \times n}$ diagonal matrix with non-negative real numbers(singular values) on the diagonal and $V^T \in \mathbb{R}^{n \times n}$ is a transpose of an orthogonal matrix. The time complexity is $O(mn^2)$.
+Ans. As noted in the previous answer, SVD is a more general matrix factorization technique. For a matrix $M \in \mathbb{R}^{m \times n}$, the SVD is defined as: $M = U \Sigma V^{T}$, where $U \in \mathbb{R}^{m \times m}$ is an orthogonal matrix,  $\Sigma \in \mathbb{R}^{m \times n}$ diagonal matrix with non-negative real numbers(singular values) on the diagonal and $V^T \in \mathbb{R}^{n \times n}$ is a transpose of orthogonal matrix. The time complexity is $O(mn^2)$.
 
 Computing PCA for the above matrix $M$ requires the calculation of a covariance matrix $M^TM$. Since this is symmetric and real-valued, an eigendecomposition is guaranteed to exist. As the SVD is also guaranteed to exist, we can equate: 
 
-$M^TM = (U \Sigma V^{T})^T(U \Sigma V^{T})$
+$$M^TM = (U \Sigma V^{T})^T(U \Sigma V^{T})$$
+$$= V\Sigma U^TU\Sigma V^{T}$$
+$$= V\Sigma \mathbb{I}\Sigma V^{T}$$
+ (As $U$ is an orthogonal matrix, $U^TU = \mathbb{I}$)
+ $$= V\Sigma^2 V^{T}$$
 
-$= V\Sigma U^TU\Sigma V^{T}$
-
-$= V\Sigma \mathbb{I}\Sigma V^{T}$
-
-(As $U$ is an orthogonal matrix, $U^TU = \mathbb{I}$)
-
-$= V\Sigma^2 V^{T}$
- 
-which is an eigendecomposition of $M^TM$ and eigenvalues of PCA are the squares of the singular values of SVD.
+ which is an eigendecomposition of $M^TM$ and eigenvalues of PCA are the squares of the singular values of SVD.
 
 As the time complexity for eigendecomposition is $O(n^3)$, we can use SVD to compute PCA. As it doesn't involve the computation of a covariance matrix, SVD is more numerically stable.
 
 Reference: https://bastian.rieck.me/research/Note_PCA_SVD.pdf
+
+6. [H] How does t-SNE (T-distributed Stochastic Neighbor Embedding) work? Why do we need it?
+
+Ans. t-SNE is a statistical method for visualizing high-dimensional data in a 2-D/3-D map while preserving the information. Similar objects are modeled by nearby points and disimilar objects are modeled by distant points with high probability.
+
+The algorithm is as follows:
+
+1) Let us construct $N$ set of high-dimensional objects $x_1, x_2, \ldots, x_N$.
+t-SNE uses the normal distribution to construct a probability distribution over all pairs of objects such that similar objects are assigned a higher probability while dissimilar objects are assigned a lower probability.
+
+![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/08c7d957-cfef-4545-81f1-b9c4c3f329ac)
+
+Also $p_{ij} = p_{ji}, p_{ii} = 0, \sum_{i, j}p_{ij} = 1$. The similarity of datapoint $x_j$ to datapoint $x_i$ is the conditional probability $p_{j \vert i}$ that $x_i$ would pick $x_j$ as its neighbor if neighbors were picked in proportion to their probability density under a Gaussian centered at $x_i$.
+
+2) t-SNE defines a probability distribution over the points in the low-dimensional map that preserves the similarity information between different points.
+
+![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/4481ae0f-8923-4f62-9b5f-b6be07c44f64)
+
+and $q_{ii} = 0$. A heavy-tailed Student t-distribution is used to measure similarities between low-dimensional points in order to allow dissimilar objects to be modeled far apart in the map.
+
+3) The final locations $y_i$ are determined by minimizing the Kullback-Liebler divergence of the distribution $P$ from $Q$.
+
+$$KL[P||Q] = \sum_{i \neq j}p_{ij} \log \frac{p_{ij}}{q_{ij}}$$
+
+t-SNE has several usecases, mostly in the medical field:
+
+-   **Clustering and classification:**  to cluster similar data points together in lower dimensional space. It can also be used for classification and finding patterns in the data.
+-   **Anomaly detection:**  to identify outliers and anomalies in the data.
+-   **Natural language processing:**  to visualize word embeddings generated from a large corpus of text that makes it easier to identify similarities and relationships between words.
+-   **Computer security:**  to visualize network traffic patterns and detect anomalies.
+-   **Cancer research:**  to visualize molecular profiles of tumor samples and identify subtypes of cancer.
+-   **Geological domain interpretation:**  to visualize seismic attributes and to identify geological anomalies.
+-   **Biomedical signal processing:**  to visualize electroencephalogram (EEG) and detect patterns of brain activity.
+
+Reference: 
+https://www.wikiwand.com/en/T-distributed_stochastic_neighbor_embedding, 
+
+https://www.datacamp.com/tutorial/introduction-t-sne
