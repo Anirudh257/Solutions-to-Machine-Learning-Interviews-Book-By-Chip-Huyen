@@ -1,3 +1,4 @@
+
 ## 5.1.1 Vectors
 
 1. Dot product
@@ -12,7 +13,7 @@ two vectors are placed so that their tails coincide.
    ii. [E] Given a vector $u$, find vector $v$ of unit length such that the dot product of $u$ and $v$ is maximum.
 
    Ans. The dot product of any two vectors is maximum if the two vectors are perfectly aligned with one another or $\theta$ between 
-   them is $0 \textdegree$. So, $v$ will be a unit vector parallel to $u$.
+   them is $0 \degree$. So, $v$ will be a unit vector parallel to $u$.
 
 2. Outer product
 
@@ -47,7 +48,7 @@ Ans.
 
 ![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/77295c58-e045-4f58-8b7f-d35d63b5f325)
 
-span = min(n, d).
+$span = min(n, d)$.
 
 7. Norms and metrics
 	
