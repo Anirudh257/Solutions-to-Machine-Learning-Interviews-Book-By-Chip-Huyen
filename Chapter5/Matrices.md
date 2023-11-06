@@ -2,9 +2,30 @@
 
 1. Why do we say that matrices are linear transformations?
 
-Ans. 
+Ans. The product of a vector by a matrix is a vector.
 
-![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/9aced0d6-dbce-4c56-adc4-d59d3f822bc6)
+For example, take the matrix:
+
+$$A = \begin{bmatrix}  
+1 & 0 & -1\\  
+3 & 1 & 2  
+\end{bmatrix}$$
+
+$$\begin{align*}
+Ax = \begin{bmatrix} 
+1 & 0 & -1 \\
+3 & 1 & 2
+\end{bmatrix} \begin{bmatrix}x \\ y \\ z\end{bmatrix} = 
+\begin{bmatrix}x - z \\ 3x + y + 2z \end{bmatrix} = \\
+(x - z, 3x + y + 2z)
+\end{align*}
+$$
+
+We can define this as a function $\textbf{f(x)} =\textbf{Ax}$ and $f : \mathbb{R}^3 \to \mathbb{R}^2$.
+
+In general, matrix multiplication be defined as $f : \mathbb{R}^n \to \mathbb{R}^m$. But only special functions can be mapped to a matrix, known as **linear transformation**. The function **g(x)** is a linear transformation if each term of each component of **g(x)** is a number times one of the variables.
+
+For example, the functions $\textbf{f}(x, y) = (2x + y, y/2)$ is a linear transformation while $\textbf{f}(x, y) = (x^2, y, x)$ is not a linear transformation.
 
 Source: https://mathinsight.org/matrices_linear_transformations
 
@@ -14,7 +35,9 @@ Ans. The inverse of a matrix $A$ is another matrix $A^{-1}$ such that the produc
 
 Some important properties of the inverse are:
 
-![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/cea9e690-064d-458a-9e49-714f729de664)
+$$\begin{align*}AA^{-1} = I \\ 
+	A^{-1}A = I
+\end{align*}$$
 
 Only square matrices may have a multiplicative inverse. Not all square matrices have an inverse, but if $A$ is invertible, then $A^{−1}$ is unique.
 
@@ -51,15 +74,27 @@ Therefore, $tr(A) = 3 + 3+ 2-1 = 7$ and $det(A) = 3.3.2.-1 = -18$.
 
 6.  Given the following matrix:  
 
-  ![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/4a5f8471-841b-4331-9087-0fb86a82ba78)
+$$\begin{bmatrix}1 & 4 & -2 \\
+-1 & 3 & 2 \\
+3 & 5 & -6
+\end{bmatrix}$$
 
-    Without explicitly using the equation for calculating determinants, what can we say about this matrix’s determinant?
-    
-    **Hint**: rely on a property of this matrix to determine its determinant.
+Without explicitly using the equation for calculating determinants, what can we say about this matrix’s determinant?
 
-Ans. The 1st and 2nd columns of the matrix are multiples of each other.
+**Hint**: rely on a property of this matrix to determine its determinant.
 
-![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/24b5fe51-d4d4-4180-ba0f-2ab604c56c12)
+Ans. The 1st and 2nd columns of the matrix are multiples of each other, i.e
+
+$$\begin{align*}
+\begin{bmatrix}-2 \\ 
+2 \\ 
+6 \end{bmatrix} 
+= -2 \times \begin{bmatrix}
+1 \\ 
+-1 \\ 
+3 
+\end{bmatrix} 
+\end{align*}$$
    
 This makes this matrix linearly dependent and hence the determinant is 0.
 
@@ -75,9 +110,9 @@ On the other hand, the Gram matrix $AA^T$ represents the dot product between the
 
  i. [M] Find $x$ such that $Ax = b$.
 
-Ans.  If $x$ is invertible, it is straightforward to compute $x = A^{-1}b$, else it is not possible to compute inverse.
+Ans.  If $x$ is invertible, it is straightforward to compute $x = A^{-1}b$, else it is not possible to compute the inverse.
 
-We can also use Gaussian elimination, matrix decomposition or numerical methods to compute $x$.
+We can also use Gaussian elimination, matrix decomposition, or numerical methods to compute $x$.
 
 ii. [E] When does this have a unique solution?
 
@@ -89,7 +124,7 @@ b) If **A** is a tall matrix (m > n), and matrix **A** has full rank, the soluti
 
 Reference: https://medium.com/@tseek2021/a-quick-summary-of-all-types-of-solutions-to-system-of-linear-equations-6501cc51673c
 
-iii.  [M] Why is it when A has more columns than rows,  $Ax=b$  has multiple solutions?
+iii.  [M] Why is it that when A has more columns than rows,  $Ax=b$  has multiple solutions?
 
 Ans. When there are more columns than rows, we are looking at the **undetermined system of equations**.  If the matrix(A) doesn't have **full rank**, i.e. rank(A) = r < min(m, n). There are only **r** independent column vectors in A and **(m - r)** dependent column vectors. If $b \in span(A)$, there exists infinite solutions to express **b**.
 
@@ -111,7 +146,7 @@ If we want a *close-enough/best-fit* solution, we can use a **least squares solu
 
 i. [E] What does derivative represent?
 
-Ans. The derivative of a function measures the sensitivity to change in the function output with respect to a change in input.
+Ans. The derivative of a function measures the sensitivity to change in the function output for a change in input.
 
 When it exists, it can be mathematically described as the *slope* of the tangent line to the graph of the function at that point.  Intuitively, the derivative is the **best linear approximation** to the function at the given point.
 
@@ -119,15 +154,21 @@ Reference: https://math.stackexchange.com/questions/3266804/how-to-solve-ax-b-wi
 
 ii. [M] What’s the difference between derivative, gradient, and Jacobian?
 
-Ans. Derivative of a function $f : \mathbb{R}^n \to \mathbb{R}^m$ at a point $p \in \mathbb{R}^n$, if it exists, is the unique linear transformation $Df(p) \in L(\mathbb{R}^n, \mathbb{R}^m)$ such that
+Ans. Derivative of a function $f : \mathbb{R}^n \to \mathbb{R}^m$ at a point $p \in \mathbb{R}^n$, if it exists, is the unique linear transformation $D_f(p) \in L(\mathbb{R}^n, \mathbb{R}^m)$ such that
 
-$\lim_{h \to 0} \frac{\|f(p+h)-f(p)-Df(p)h\|}{\|h\|} = 0;$
+$$\lim_{h \to 0} \frac{\|f(p+h)-f(p)-D_f(p)h\|}{\|h\|} = 0;$$
 
-The matrix of $Df(p)$ with respect to the standard orthonormal bases of $\mathbb{R}^n$ and $\mathbb{R}^m$ is called the **Jacobian matrix** of $f$ at $p$ and lies in $M_{m \times n}(\mathbb{R})$.
+The matrix of $D_f(p)$ with respect to the standard orthonormal bases of $\mathbb{R}^n$ and $\mathbb{R}^m$ is called the **Jacobian matrix** of $f$ at $p$ and lies in $M_{m \times n}(\mathbb{R})$.
 
-Gradient of a function $f: \mathbb{R}^n \to \mathbb{R}$ is a vector that points in the direction of the steepest increase of the function at the given point. It is a generalization of derivative to functions of multiple variables. It consists of partial derivatives with respect to each variable. 
+The gradient of a function $f: \mathbb{R}^n \to \mathbb{R}$ is a vector that points in the direction of the steepest increase of the function at the given point. It is a generalization of derivative to functions of multiple variables. It consists of partial derivatives with respect to each variable. 
 
-![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/74d0bae1-a75a-4f3f-9519-a9a64d0bd076)
+$$\begin{align*}
+\triangledown_{(x, z)} = 
+\begin{bmatrix}
+\frac{df(x, z)}{dx} \\
+\frac{df(x, z)}{dz}
+\end{bmatrix}
+\end{align*}$$
 
 Reference: 
 
