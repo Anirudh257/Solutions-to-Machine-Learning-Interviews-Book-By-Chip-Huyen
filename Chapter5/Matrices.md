@@ -180,7 +180,18 @@ https://www.deeplearningwizard.com/deep_learning/boosting_models_pytorch/derivat
 
 Ans. $y = xw \in \mathbb{R}^{n \times m}$.
 
-![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/1baf9b76-5394-4444-a8dc-5cf090bab120)
+$$\begin{align*}
+\mathbf{J}_{ij} = [\frac{\delta\mathbf{y}}{\delta x_1} \ldots \frac{\delta\mathbf{y}}{\delta x_n}] = 
+\begin{bmatrix} 
+\nabla^T y_1 \\
+\vdots \\
+\nabla^T y_n 
+\end{bmatrix}  = 
+\begin{bmatrix} \frac{\delta y_1}{\delta x_1} & \ldots & \frac{\delta y_m}{\delta x_1} \\ 
+\vdots & \ddots & \vdots \\ 
+\frac{\delta y_n}{\delta x_1} & \ldots & \frac{\delta y_m}{\delta x_n}\end{bmatrix} 
+\end{align*}
+$$
 
 which is of same dimensions as the input $\mathbb{R}^{n \times m}$
 
