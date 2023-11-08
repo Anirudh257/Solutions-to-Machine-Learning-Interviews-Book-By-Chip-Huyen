@@ -25,7 +25,37 @@ Ans. No, Eigendecomposition of a matrix is not always unique. It is not always u
 
 Example from https://github.com/starzmustdie/ml-interview-questions-and-answers/blob/main/ML_interview_questions_and_answers.pdf
 
-![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/c7b07de8-6aa9-47d5-81bd-6b6d82bd1595)
+The decomposition is not always unique. Suppose $A \in \mathbb{R}^{2 \times 2}$ has two equal eigenvalues $\lambda_1 = \lambda_2 = \lambda$, with corresponding eigenvectors $u_1, u_2$. Then:
+
+$$\begin{align*}
+Au_1 = \lambda_1 u_1 = \lambda u_1 \\ 
+Au_2 = \lambda_2 u_2 = \lambda u_2
+\end{align*}$$
+
+Or written in matrix form:
+
+$$
+\begin{align*}
+A \begin{bmatrix} u_1 & u_2 \end{bmatrix} = \begin{bmatrix} u_1 & u_2 \end{bmatrix}\begin{bmatrix} \lambda & 0 \\
+0 & \lambda \end{bmatrix}
+\end{align*}
+$$
+
+Notice that we can permute the matrix of the eigenvectors (thus obtaining a different factorization):
+
+$$
+\begin{align*}
+A \begin{bmatrix} u_2 & u_1 \end{bmatrix} = \begin{bmatrix} u_2 & u_1 \end{bmatrix}\begin{bmatrix} \lambda & 0 \\
+0 & \lambda \end{bmatrix}
+\end{align*}
+$$
+
+But we still end up with the same eigen-properties:
+
+$$\begin{align*}
+Au_2 = \lambda u_2 \\ 
+Au_1 = \lambda u_1
+\end{align*}$$
 
 Reference: https://www.cs.toronto.edu/~rgrosse/courses/csc411_f18/tutorials/tut4_slides.pdf
 
@@ -63,6 +93,7 @@ Ans. SVD is a more general matrix factorization technique than eigendecompositio
 The left singular vectors of $A$ are the eigenvectors of $AA^T$ and the right singular vectors of $A$ are the eigenvectors of $A^TA$. If $\lambda$ is a an eigenvalue of $AA^T$ (or $A^TA$), the eigenvalues (and thus the singular values) are non-negative.
 
 (ii) What’s the relationship between PCA and SVD?
+
 Ans. As noted in the previous answer, SVD is a more general matrix factorization technique. For a matrix $M \in \mathbb{R}^{m \times n}$, the SVD is defined as: $M = U \Sigma V^{T}$, where $U \in \mathbb{R}^{m \times m}$ is an orthogonal matrix,  $\Sigma \in \mathbb{R}^{m \times n}$ diagonal matrix with non-negative real numbers(singular values) on the diagonal and $V^T \in \mathbb{R}^{n \times n}$ is a transpose of orthogonal matrix. The time complexity is $O(mn^2)$.
 
 Computing PCA for the above matrix $M$ requires the calculation of a covariance matrix $M^TM$. Since this is symmetric and real-valued, an eigendecomposition is guaranteed to exist. As the SVD is also guaranteed to exist, we can equate: 
@@ -96,13 +127,13 @@ Also $p_{ij} = p_{ji}, p_{ii} = 0, \sum_{i, j}p_{ij} = 1$. The similarity of dat
 
 ![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/4481ae0f-8923-4f62-9b5f-b6be07c44f64)
 
-and $q_{ii} = 0$. A heavy-tailed Student t-distribution is used to measure similarities between low-dimensional points in order to allow dissimilar objects to be modeled far apart in the map.
+and $q_{ii} = 0$. A heavy-tailed Student t-distribution is used to measure similarities between low-dimensional points to allow dissimilar objects to be modeled far apart in the map.
 
 3) The final locations $y_i$ are determined by minimizing the Kullback-Liebler divergence of the distribution $P$ from $Q$.
 
 $$KL[P||Q] = \sum_{i \neq j}p_{ij} \log \frac{p_{ij}}{q_{ij}}$$
 
-t-SNE has several usecases, mostly in the medical field:
+t-SNE has several use-cases, mostly in the medical field:
 
 -   **Clustering and classification:**  to cluster similar data points together in lower dimensional space. It can also be used for classification and finding patterns in the data.
 -   **Anomaly detection:**  to identify outliers and anomalies in the data.
