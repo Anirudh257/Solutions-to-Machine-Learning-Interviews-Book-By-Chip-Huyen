@@ -1,4 +1,3 @@
-
 ## 5.1.1 Vectors
 
 1. Dot product
@@ -20,16 +19,26 @@ two vectors are placed so that their tails coincide.
     i. [E] Given two vectors $a = [3, 2, 1]$ and  $b = [-1, 0, 1]$. Calculate the outer product $a^Tb$?
 
     Ans.
-        ![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/53e8ca12-bf64-4739-9dc9-730dff75a350)
+   
+$$
+\begin{align*}
+a^Tb = \begin{bmatrix} 3 \\ 
+2 \\ 
+1 \end{bmatrix}
+\begin{bmatrix} -1 & 0 & 1 \end{bmatrix} = \begin{bmatrix} -3 & 0 & 3 \\
+-2 & 0 & 2 \\
+-1 & 0 & 1 
+\end{bmatrix}
+\end{align*}
+$$
 
+  ii. [M] Give an example of how the outer product can be useful in ML.
 
-    ii. [M] Give an example of how the outer product can be useful in ML.
-
-    Ans. One typical example of the outer product in ML is in Neural Networks and more particularly in backpropagation where the
+Ans. One typical example of the outer product in ML is in Neural Networks and more particularly in backpropagation where the
     outer product is a way of transmitting the local error of a layer backward to the previous layers so that the weights can be
     adjusted properly (namely be corrected to a degree and come closer to the value that they should have).
 
-     ![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/857a854a-f7bc-4f6b-9df9-b3aca99fb95e)
+![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/857a854a-f7bc-4f6b-9df9-b3aca99fb95e)
      Source: https://cs224d.stanford.edu/lectures/CS224d-Lecture5.pdf
    
 3. [E] What does it mean for two vectors to be linearly independent?
@@ -39,18 +48,25 @@ Ans.  A set of two vectors is linearly independent if and only if neither of the
 4. [M] Given two sets of vectors $A = {a_1, a_2, a_3, ..., a_n}$ and $B = {b_1, b_2, b_3, ... , b_m}$. How do you check that
    they share the same basis?
 
-Ans. 
+Ans. Check if every vector in B can be written as a linear combination of vectors in A. For all $b_i \in B$,
 
-![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/96fc1b8f-f78e-40a3-9ad9-12b138614d22)
+$$b_i = \lambda_1^ia_1 + \lambda_2^ia_2 + \ldots + \lambda_n^ia_n$$
 
+where $\lambda^i_1, \lambda^i_2, \ldots, \lambda^i_n$ are scalars.
+
+Source: https://github.com/starzmustdie/ml-interview-questions-and-answers/blob/main/ML_interview_questions_and_answers.pdf
  
 5. [M] Given $n$ vectors, each of $d$ dimensions. What is the dimension of their span?
 
-![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/77295c58-e045-4f58-8b7f-d35d63b5f325)
+Let matrix $A$ consists on $n$ vectors side-by-side as columns, and thus having a dimension of $d \times n$. Suppose the vectors that constitute this matrix are linearly independent, then:
 
-$span = min(n, d)$.
+* The span of the rows of a matrix is called the **row space** of the matrix. The dimension of the row space is the **rank** of the matrix, i.e. $d$.
+* The span of the columns of a matrix is called the **range** or the **column space** of the matrix, i.e. $n$. 
 
-7. Norms and metrics
+$span = min(n, d)$
+
+
+6. Norms and metrics
 	
    i. [E] What's a norm? What is $L_0, L_1, L_2, L_{norm}$?
 
