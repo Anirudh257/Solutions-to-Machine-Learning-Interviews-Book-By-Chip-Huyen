@@ -1,3 +1,4 @@
+
 #### 5.1.4 Calculus and convex optimization
 
 1. Differentiable functions
@@ -35,3 +36,38 @@ $$\text{LeakyReLU(x)} = \begin{cases}
                     \end{cases} \\ $$
 
 Theoretically, these functions are not differentiable at $x = 0$. For such points, we can use sub-derivatives. Sub-derivatives can be treated as an approximation to derivatives for a non-continuous function.
+
+2.  Convexity
+    i.  [E] What does it mean for a function to be convex or concave? Draw it.
+    ii.  [E] Why is convexity desirable in an optimization problem?
+   iii.  [M] Show that the cross-entropy loss function is convex.
+
+Ans. 
+
+i. A function $f: \mathbb{R}^n \to \mathbb{R}$ is convex if its domain (denoted $D(f)$) is a convex set, and if, for all $x, y \in D(f)$ and $\theta \in \mathbb{R}, 0 \leq \theta \leq 1,$
+
+$$f(\theta x + (1 - \theta y)) \leq \theta f(x) + (1 - \theta) f(y)$$
+
+A line drawn between any two points on the graph of the convex function is always above the graph of the function.
+
+![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/6ae56b39-5381-4bad-a371-7b4ac39ec779)
+
+Conversely, a concave function is the opposite of a convex function.
+
+Mathematically, we can define it as: 
+A real-valued function $f$ on an interval is said to be concave, if for any $x$ and $y$ in the interval and for any $\theta \in [0, 1],$
+
+$$f(\theta y + (1 - \theta x)) \geq \theta f(y) + (1 - \theta) f(x)$$
+
+![ConcaveDef.png](https://upload.wikimedia.org/wikipedia/commons/7/73/ConcaveDef.png)
+
+The line joining any two points on the graph is below the graph of $f$ between the two points.
+
+Reference: https://www.wikiwand.com/en/Concave_function
+
+ii. 
+
+A convex function is desirable as it is guaranteed to have a global minimum.
+
+iii
+ 
