@@ -69,5 +69,60 @@ ii.
 
 A convex function is desirable as it is guaranteed to have a global minimum.
 
-iii
+iii.
+
+Cross-entropy is defined as: 
+
+$$\begin{align}
+H(p, q) =  -\sum_{x \in \mathcal{X}} p(x) \cdot \log_b q(x)
+\end{align}$$ 
+ 
+ where $X$ is a discrete random variable with possible outcomes $\mathcal{X}$, $P$ and $Q$ are two probability distributions on $X$ with the probability mass functions $p(x)$ and $q(x)$ and $b$ is the base of the logarithm specifying in which unit the cross-entropy is defined.
+
+**Theorem:** We want to prove the convexity of this cross-entropy function, i.e.
+
+$$\begin{align}
+\mathrm{H}[p,\lambda q_1 + (1-\lambda) q_2] \leq \lambda \mathrm{H}[p,q_1] + (1-\lambda) \mathrm{H}[p,q_2]
+\end{align}$$
+
+where $p$ is fixed and $q_1$ and $q_2$ are any two probability distributions and $0 \leq\lambda\leq1$.
+
+**Proof**: 
+
+We will use the relationship between Kullback-Liebler divergence, entropy and cross-entropy:
+
+$$\begin{align}
+\mathrm{KL}[P||Q] = \mathrm{H}(P,Q) - \mathrm{H}(P) \; .
+\end{align}$$
+
+Before delving further into the proof, we will prove that the KL-divergence is convex.
+
+The Kullback-Leibler divergence of $P$ and $Q$ for a discrete random variable $X$ is defined as:
+
+$$
+\begin{align}
+\mathrm{KL}[P||Q] = \sum_{x \in \mathcal{X}} p(x) \cdot \log \frac{p(x)}{q(x)}
+\end{align}
+$$
+
+The objective is to prove the convexity of KL-divergence, i.e.:
+
+$$
+\begin{align}
+\mathrm{KL}[\lambda p_1 + (1-\lambda) p_2||\lambda q_1 + (1-\lambda) q_2] \leq \lambda \mathrm{KL}[p_1||q_1] + (1-\lambda) \mathrm{KL}[p_2||q_2]
+\end{align}
+$$
+
+where $(p_1, q_1)$ and $(p_2, q_2)$ are two pairs of probability distributions and $0 \leq \lambda \leq 1$.
+
+
+Source:
+
+1) https://statproofbook.github.io/D/ent-cross
+
+2) https://statproofbook.github.io/P/entcross-conv
+
+3) https://statproofbook.github.io/P/kl-conv
+
+4) https://statproofbook.github.io/D/kl
  
