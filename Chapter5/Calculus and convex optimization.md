@@ -144,8 +144,8 @@ $$
 \end{align}
 $$
 
-From eq.(7)
-
+From **KL-divergence** definition,
+ 
 $$
 \begin{align}
 \sum_{x \in \mathcal{X}} \left[ \left[ \lambda p_1(x) + 
@@ -153,14 +153,26 @@ $$
 \end{align}
 $$
 
-From eq. (8)
+From **log-sum inequality**,
 
 $$
 \begin{align}
 \leq \sum_{x \in \mathcal{X}} \left[ \lambda p_1(x) \cdot \log \frac{\lambda p_1(x)}{\lambda q_1(x)} + (1-\lambda) p_2(x) \cdot \log \frac{(1-\lambda) p_2(x)}{(1-\lambda) q_2(x)} \right] \\
-= &\lambda \sum_{x \in \mathcal{X}} p_1(x) \cdot \log \frac{p_1(x)}{q_1(x)} + (1-\lambda)
 \end{align}
 $$
+
+$$
+\begin{align}
+= \lambda \sum_{x \in \mathcal{X}} p_1(x) \cdot \log \frac{p_1(x)}{q_1(x)} + (1-\lambda) \sum_{x \in \mathcal{X}} p_2(x) \cdot \log \frac{p_2(x)}{q_2(x)} \\
+\end{align}
+$$
+
+$$
+\begin{align}
+&\lambda \, \mathrm{KL}[p_1||q_1] + (1-\lambda) \, \mathrm{KL}[p_2||q_2]
+\end{align}
+$$
+
 
 Source:
 
