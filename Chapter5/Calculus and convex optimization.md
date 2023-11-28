@@ -1,4 +1,5 @@
 
+
 #### 5.1.4 Calculus and convex optimization
 
 1. Differentiable functions
@@ -89,13 +90,13 @@ where $p$ is fixed and $q_1$ and $q_2$ are any two probability distributions and
 
 **Proof**: 
 
-We will use the relationship between Kullback-Liebler divergence, entropy and cross-entropy:
+We will use the relationship between Kullback-Liebler divergence, entropy, and cross-entropy:
 
 $$\begin{align}
 \mathrm{KL}[P||Q] = \mathrm{H}(P,Q) - \mathrm{H}(P) \; .
 \end{align}$$
 
-Before delving further into the proof, we will prove that the KL-divergence is convex.
+Before delving further into the proof, we will prove that the KL divergence is convex.
 
 The Kullback-Leibler divergence of $P$ and $Q$ for a discrete random variable $X$ is defined as:
 
@@ -109,12 +110,57 @@ The objective is to prove the convexity of KL-divergence, i.e.:
 
 $$
 \begin{align}
-\mathrm{KL}[\lambda p_1 + (1-\lambda) p_2||\lambda q_1 + (1-\lambda) q_2] \leq \lambda \mathrm{KL}[p_1||q_1] + (1-\lambda) \mathrm{KL}[p_2||q_2]
+\mathrm{KL}[\lambda p_1 + (1-\lambda) p_2||\lambda q_1 \\ + (1-\lambda) q_2] \leq \lambda \mathrm{KL}[p_1||q_1] + (1-\lambda) \mathrm{KL}[p_2||q_2]
 \end{align}
 $$
 
 where $(p_1, q_1)$ and $(p_2, q_2)$ are two pairs of probability distributions and $0 \leq \lambda \leq 1$.
 
+**Sub-proof**:
+
+KL-divergence of $P$ from $Q$ is defined as:
+
+$$
+\begin{align}
+\mathrm{KL}[P||Q] = \sum_{x \in \mathcal{X}} p(x) \cdot \log \frac{p(x)}{q(x)}
+\end{align}
+$$
+
+Using the **log-sum inequality**, that states:
+
+$$
+\begin{align}
+\sum_{i=1}^n a_i \log \frac{a_i}{b_i} \geq \left( \sum_{i=1}^n a_i \right) \log \frac{\sum_{i=1}^n a_i}{\sum_{i=1}^n b_i}
+\end{align}
+$$
+
+where $a_1, \ldots, a_n$ and $b_1, \ldots, b_n$ are non-negative real numbers.
+
+We can rewrite the KL-divergence of the distribution as:
+
+$$
+\begin{align}
+\mathrm{KL}[\lambda p_1 + (1-\lambda) p_2||\lambda q_1 + (1-\lambda) q_2] 
+\end{align}
+$$
+
+From eq.(7)
+
+$$
+\begin{align}
+\sum_{x \in \mathcal{X}} \left[ \left[ \lambda p_1(x) + 
+ (1-\lambda) p_2(x) \right] \cdot \log \frac{\lambda p_1(x)  (1-\lambda) p_2(x)}{\lambda q_1(x) + (1-\lambda) q_2(x)} \right] 
+\end{align}
+$$
+
+From eq. (8)
+
+$$
+\begin{align}
+\leq \sum_{x \in \mathcal{X}} \left[ \lambda p_1(x) \cdot \log \frac{\lambda p_1(x)}{\lambda q_1(x)} + (1-\lambda) p_2(x) \cdot \log \frac{(1-\lambda) p_2(x)}{(1-\lambda) q_2(x)} \right] \\
+= &\lambda \sum_{x \in \mathcal{X}} p_1(x) \cdot \log \frac{p_1(x)}{q_1(x)} + (1-\lambda)
+\end{align}
+$$
 
 Source:
 
