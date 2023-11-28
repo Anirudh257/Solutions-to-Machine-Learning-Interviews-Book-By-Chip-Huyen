@@ -169,7 +169,7 @@ $$
 
 $$
 \begin{align}
-&\lambda  \mathrm{KL}[p_1||q_1] + (1-\lambda)  \mathrm{KL}[p_2||q_2]
+\lambda  \mathrm{KL}[p_1||q_1] + (1-\lambda)  \mathrm{KL}[p_2||q_2]
 \end{align}
 $$
 
