@@ -37,9 +37,12 @@ $$\text{LeakyReLU(x)} = \begin{cases}
 Theoretically, these functions are not differentiable at $x = 0$. For such points, we can use sub-derivatives. Sub-derivatives can be treated as an approximation to derivatives for a non-continuous function.
 
 2.  Convexity
+   
     i.  [E] What does it mean for a function to be convex or concave? Draw it.
-    ii.  [E] Why is convexity desirable in an optimization problem?
-   iii.  [M] Show that the cross-entropy loss function is convex.
+
+     ii.  [E] Why is convexity desirable in an optimization problem?
+
+     iii.  [M] Show that the cross-entropy loss function is convex.
 
 Ans. 
 
