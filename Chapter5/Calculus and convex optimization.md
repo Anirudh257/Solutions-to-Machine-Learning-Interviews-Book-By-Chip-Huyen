@@ -1,5 +1,3 @@
-
-
 #### 5.1.4 Calculus and convex optimization
 
 1. Differentiable functions
@@ -173,6 +171,28 @@ $$
 \end{align}
 $$
 
+Hence proved.
+
+Using this fact,
+
+$$
+\begin{split}
+\mathrm{KL}[\lambda p + (1-\lambda) p||\lambda q_1 + (1-\lambda) q_2] &\leq \lambda \mathrm{KL}[p||q_1] + (1-\lambda) \mathrm{KL}[p||q_2] \\
+\mathrm{KL}[p||\lambda q_1 + (1-\lambda) q_2] &\leq \lambda \mathrm{KL}[p||q_1] + (1-\lambda) \mathrm{KL}[p||q_2]
+\end{split}
+$$
+
+and using eq.(3) which states the relationship between the KL-divergence, entropy and cross-entropy, we get:
+
+$$
+\begin{split}
+\mathrm{H}[p,\lambda q_1 + (1-\lambda) q_2] - \mathrm{H}[p] &\leq \lambda \left( \mathrm{H}[p,q_1] - \mathrm{H}[p] \right) + (1-\lambda) \left( \mathrm{H}[p,q_2] - \mathrm{H}[p] \right) \\
+\mathrm{H}[p,\lambda q_1 + (1-\lambda) q_2] - \mathrm{H}[p] &\leq \lambda \mathrm{H}[p,q_1] + (1-\lambda) \mathrm{H}[p,q_2] - \mathrm{H}[p] \\
+\mathrm{H}[p,\lambda q_1 + (1-\lambda) q_2] &\leq \lambda \mathrm{H}[p,q_1] + (1-\lambda) \mathrm{H}[p,q_2]
+\end{split}
+$$
+
+Hence, proved.
 
 Source:
 
