@@ -204,3 +204,33 @@ Source:
 
 4) https://statproofbook.github.io/D/kl
  
+3.   Given a logistic discriminant classifier: 
+
+$$p(y=1|x) = \sigma (w^Tx)$$
+
+where the sigmoid function is given by:
+
+$$\sigma(z) = (1 + \exp(-z))^{-1}$$
+
+The logistic loss for a training sample $x_i$ with class label $y_i$ is given by:
+
+$$L(y_i, x_i;w) = -\log p(y_i|x_i)$$
+
+i. Show that $p(y=-1|x) = \sigma(-w^Tx)$.
+
+Ans. The logistic function is primarily used to model binary outcomes and hence, 
+$$p(y  = -1 | x) = 1 - p(y = 1 | x)$$
+
+$$ = 1 - \frac{1}{1 + \exp(-w^Tx)}$$
+
+$$= \frac{1 + \exp(-w^Tx) - 1}{1 + \exp(-w^Tx)}$$
+
+$$= \frac{\exp(-w^Tx)}{1 + \exp(-w^Tx)}$$
+
+Multiplying both the numerator and denominator by $\exp(w^Tx)$
+
+$$= \frac{1}{\exp(w^Tx)(1 + \exp(-w^Tx))}$$
+
+$$=\frac{1}{1 + \exp(w^Tx)}$$
+
+$$= \sigma(-w^Tx)$$
