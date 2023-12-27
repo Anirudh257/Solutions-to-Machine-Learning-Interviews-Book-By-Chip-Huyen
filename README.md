@@ -13,3 +13,5 @@ Existing solution repos:
 1) https://github.com/starzmustdie/ml-interview-questions-and-answers
 
 2) https://github.com/egonos/Introduction-to-Machine-Learning-Interviews-Book-Solutions
+
+3) https://github.com/KyawHtetWin/chip-huyen-ml-interview-book-solutions/
