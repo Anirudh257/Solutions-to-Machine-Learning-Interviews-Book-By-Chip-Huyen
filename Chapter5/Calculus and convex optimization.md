@@ -237,3 +237,42 @@ $$= \frac{1}{\exp(w^Tx)(1 + \exp(-w^Tx))}$$
 $$=\frac{1}{1 + \exp(w^Tx)}$$
 
 $$= \sigma(-w^Tx)$$
+
+ii. Show that $\Delta_wL(y_i, x_i; w) = -y_i(1-p(y_i|x_i))x_i$.
+
+Ans. 
+
+We know that 
+
+$$L(y_i, x_i;w) = -y_i\log p(y_i|x_i) = -y_i\log\sigma(z) $$
+
+$$z = w^Tx$$
+
+$$a = \sigma(z) = (1 + \exp(-z))^{-1}$$
+
+Therefore,
+
+$$L(y_i, x_i;w) = -\log\sigma(z) = -y_i\log a $$
+
+Using the chain rule, we can decompose the derivative as: 
+
+$$\frac{\partial L}{\partial w} = \frac{\partial L}{\partial a} \cdot \frac{\partial a}{\partial z} \cdot \frac{\partial z}{\partial w}$$
+
+$$\frac{\partial L}{\partial a} = \frac{-y_i}{a}$$
+
+$$\frac{\partial a}{\partial z} = \frac{\partial \sigma(z)}{\partial(z)} = \frac{\partial}{\partial z} \left( \frac{1}{1 + \exp(-z)} \right) $$
+
+$$= -\frac{1}{(1 + \exp(-z))^2} (-\exp(-z)) = \frac{1}{1+ \exp(-z)} \cdot \frac{\exp(-z)}{1 + \exp(-z)} $$
+$$
+                = \frac{1}{1+ \exp(-z)} \cdot  \frac{\exp(-z) + 1 - 1}{1 + \exp(-z)} $$
+
+$$\frac{1}{1+ \exp(-z)} \cdot \left( 
+                1 - \frac{1}{1+ \exp(-z)} \right) = \sigma(z)(1 - \sigma(z))$$
+
+$$\frac{\partial z}{\partial w} = \frac{\partial}{\partial w} \left( w^T x \right) = x$$
+
+Combining the partial derivatives, we get:
+
+$$\frac{\partial L}{\partial w} = \frac{\partial L}{\partial a} \cdot \frac{\partial a}{\partial z} \cdot \frac{\partial z}{\partial w}$$
+
+$$-\frac{y_i}{\sigma(z)} \cdot \sigma(z)(1 - \sigma(z)) \cdot x = -y_i (1 - \sigma(z)) x$$
