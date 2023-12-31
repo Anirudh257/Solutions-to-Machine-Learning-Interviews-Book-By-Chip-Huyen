@@ -1,3 +1,4 @@
+
 #### 5.1.4 Calculus and convex optimization
 
 1. Differentiable functions
@@ -217,7 +218,7 @@ $$\sigma(z) = (1 + \exp(-z))^{-1}$$
 
 The logistic loss for a training sample $x_i$ with class label $y_i$ is given by:
 
-$$L(y_i, x_i;w) = -\log p(y_i|x_i)$$
+$$L(y_i, x_i;w) = -y_i \log  p(y_i|x_i)$$
 
 i. Show that $p(y=-1|x) = \sigma(-w^Tx)$.
 
@@ -246,7 +247,7 @@ We know that
 
 $$L(y_i, x_i;w) = -y_i\log p(y_i|x_i) = -y_i\log\sigma(z) $$
 
-$$z = w^Tx$$
+$$z = w^Tx_i$$
 
 $$a = \sigma(z) = (1 + \exp(-z))^{-1}$$
 
@@ -254,7 +255,7 @@ Therefore,
 
 $$L(y_i, x_i;w) = -\log\sigma(z) = -y_i\log a $$
 
-Using the chain rule, we can decompose the derivative as: 
+Using chain rule, we can decompose the derivative as: 
 
 $$\frac{\partial L}{\partial w} = \frac{\partial L}{\partial a} \cdot \frac{\partial a}{\partial z} \cdot \frac{\partial z}{\partial w}$$
 
@@ -269,10 +270,10 @@ $$
 $$\frac{1}{1+ \exp(-z)} \cdot \left( 
                 1 - \frac{1}{1+ \exp(-z)} \right) = \sigma(z)(1 - \sigma(z))$$
 
-$$\frac{\partial z}{\partial w} = \frac{\partial}{\partial w} \left( w^T x \right) = x$$
+$$\frac{\partial z}{\partial w} = \frac{\partial}{\partial w} \left( w^T x_i \right) = x_i$$
 
 Combining the partial derivatives, we get:
 
 $$\frac{\partial L}{\partial w} = \frac{\partial L}{\partial a} \cdot \frac{\partial a}{\partial z} \cdot \frac{\partial z}{\partial w}$$
 
-$$-\frac{y_i}{\sigma(z)} \cdot \sigma(z)(1 - \sigma(z)) \cdot x = -y_i (1 - \sigma(z)) x$$
+$$-\frac{y_i}{\sigma(z)} \cdot \sigma(z)(1 - \sigma(z)) \cdot x = -y_i (1 - \sigma(z)) x_i = -y_i(1-p(y_i|x_i))x_i$$
