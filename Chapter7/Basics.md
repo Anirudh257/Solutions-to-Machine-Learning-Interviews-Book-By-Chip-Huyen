@@ -33,17 +33,19 @@ Reference:
 * https://www.wikiwand.com/en/Self-supervised_learning
 
 2. Empirical risk minimization.
+   
     i.  [E] What’s the risk in empirical risk minimization?
-   ii.  [E] Why is it empirical?
-  iii.  [E] How do we minimize that risk?
 
 Ans. 
 
 In empirical risk minimization, we assume that there is a joint probability distribution $P(x, y)$ over an an input space $X$ and a target space $Y$. The goal is to learn a function $h: X \rightarrow Y$ (often called hypothesis) which outputs an object $y \in Y$, given $x \in X$. Moreover, assume that we are given a non-negative real-valued loss function $L(\hat{y}, y)$ which measures how different the prediction $\hat{y}$ of a hypothesis is from the true outcome $y$. \\\\
             The risk associated with the hypothesis $h(x)$ is then defined as the expectation of the loss function:
-      $$ R(h) = \mathbb{E}[{L(h(x), y)}] = \int L(h(x), y) dP(x, y) $$
+
+
+  $$ R(h) = \mathbb{E}[{L(h(x), y)}] = \int L(h(x), y) dP(x, y) $$
 
 A loss function commonly used in theory is the 0-1 loss function:
+
 $$
             \begin{align*}
                 L(\hat{y}, y) = \begin{cases}
