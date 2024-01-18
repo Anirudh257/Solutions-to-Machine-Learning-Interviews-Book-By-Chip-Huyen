@@ -56,9 +56,10 @@ $$
 $$
 
 The ultimate goal of a learning algorithm is to find a hypothesis $h^*$ among a fixed class of functions $\mathcal{H}$ for which the risk $R(h)$ is minimal:
+
 $$
             \begin{align*}
-                h^* = \argmin_{h \in \mathcal{H}} R(h)
+                h^* = argmin_{h \in \mathcal{H}} R(h)
             \end{align*}
 $$
             
