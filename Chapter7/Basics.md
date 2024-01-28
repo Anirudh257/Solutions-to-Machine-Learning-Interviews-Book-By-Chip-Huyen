@@ -81,3 +81,28 @@ In practice, machine learning algorithms cope with this problem by employing a c
 
 Reference: https://www.wikiwand.com/en/Empirical_risk_minimization#Computational_complexity
 
+3. [E] Occam's razor states that when the simple explanation and complex explanation both work equally well, the simple explanation is usually correct. How do we apply this principle in ML?
+
+Ans. In ML, we use this principle to select between two different models. Given two models with the same generalization error, the simpler one should be preferred because simplicity is desirable. Given two models with the same training-set error, the simpler one should be preferred because it is likely to have a lower generalization error.
+
+**When choosing between two models, we can only say a simpler model is better if its generalization error is equal to or less than that of the more complex model.**
+
+Reference: https://towardsdatascience.com/what-occams-razor-means-in-machine-learning-53f07effc97c
+
+4. [E] What are the conditions that allowed deep learning to gain popularity in the last decade?
+
+Ans. The three main factors that allowed deep learning to gain popularity are:
+
+• Increased access to large datasets of high quality and fine-grained labels (ImageNet, CityScapes).
+
+• Improved hardware (GPUs, TPUs).
+
+• Algorithmic advances (Residual Connections, Attention mechanism, BatchNorm)
+
+5. [M] If we have a wide NN and a deep NN with the same number of parameters, which one is more expressive and why?
+
+Ans. Having multiple layers helps us learn features at various levels of abstraction. For example, if you train a deep convolutional neural network to classify images, you will find that the first layer will train itself to recognize very basic things like edges, the next layer will train itself to recognize collections of edges such as shapes, the next layer will train itself to recognize collections of shapes like eyes or noses, and the next layer will learn even higher-order features like faces. **Multiple layers are much better at generalizing because they learn all the intermediate features** between the raw data and the high-level classification.
+
+A wider network is also more prone to overfitting.
+
+Reference: https://stats.stackexchange.com/questions/222883/why-are-neural-networks-becoming-deeper-but-not-wider
