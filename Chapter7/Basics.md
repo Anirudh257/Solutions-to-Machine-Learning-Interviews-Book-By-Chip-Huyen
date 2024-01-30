@@ -38,7 +38,9 @@ Ans. In empirical risk minimization, we assume that there is a joint probability
             The risk associated with the hypothesis $h(x)$ is then defined as the expectation of the loss function:
 
 
-  $$ R(h) = \mathbb{E}[{L(h(x), y)}] = \int L(h(x), y) dP(x, y) $$
+  $$ 
+  R(h) = \mathbb{E}[{L(h(x), y)}] = \int L(h(x), y) dP(x, y) 
+  $$
 
 A loss function commonly used in theory is the 0-1 loss function:
 
@@ -106,3 +108,33 @@ Ans. Having multiple layers helps us learn features at various levels of abstrac
 A wider network is also more prone to overfitting.
 
 Reference: https://stats.stackexchange.com/questions/222883/why-are-neural-networks-becoming-deeper-but-not-wider
+
+6. [H] The Universal Approximation Theorem states that a neural network with 1 hidden layer can approximate any continuous function for inputs within a specific range. Then why can’t a simple neural network reach an arbitrarily small positive error?
+
+Ans. The Universal Approximation Theorem states that a neural network with a single hidden layer can approximate any continuous function for inputs within a specific range. While the theorem guarantees that the network can approximate any function, it does not provide specific guidance on the number of neurons or the complexity required to achieve a certain level of accuracy. A low error can be achieved by an exponentially large number of neurons but such a wide model is prone to overfitting and difficult to train.
+
+7. [E] What are saddle points and local minima? Which are thought to cause more problems for training large NNs?
+
+Ans. Saddle points are critical points where the function attains neither a local maximum or a local minimum value.
+
+![Saddle point - Wikipedia](https://upload.wikimedia.org/wikipedia/commons/1/1e/Saddle_point.svg)
+
+Local minima are points in the function where it reaches the **minimum** value in its neighbourhood. **It may or may not be the minimum** for the whole function.
+
+![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/3009fb26-e68d-42eb-a413-ccf9f6fd752e)
+
+
+
+Empirically, it has been shown that **saddle points** can cause more problems than **local minimum** for training models. For a point to truly be a local minimum of the loss function, it has to be a local minimum in all directions, where each direction is specified by one of the parameters of the network.Given that we usually train million-  
+(or even billion-) parameter models, it is much more likely that at least one direction displays different behavior than the others, as opposed to all of them displaying the same behavior.  Therefore, we can  
+conclude that local minima are not as common.
+
+In practice, networks trained by Stochastic Gradient Descent almost always escapes from the local minima. Since we are calculating the loss wrt. the current batch (and not the entire dataset), we are not truly traversing the original loss landscape, but a proxy of it. And if we eventually get stuck in a local minima / saddle point in the loss landscape (or even its current proxy), in the next iteration we are optimizing over a different batch, which is a different proxy of the loss, and therefore will slightly nudge us in a different direction. This regularization effect is a huge reason why we are able to train neural networks that show remarkable capabilities. 
+
+Reference:
+
+* https://davidlibland.github.io/posts/2018-11-10-saddle-points-and-sdg.html
+
+* https://blog.paperspace.com/intro-to-optimization-in-deep-learning-gradient-descent/
+
+* https://www.mathsisfun.com/algebra/functions-maxima-minima.html
