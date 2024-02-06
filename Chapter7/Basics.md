@@ -138,3 +138,62 @@ Reference:
 * https://blog.paperspace.com/intro-to-optimization-in-deep-learning-gradient-descent/
 
 * https://www.mathsisfun.com/algebra/functions-maxima-minima.html
+
+8. Hyperparameters.
+
+i. [E] What are the differences between parameters and hyperparameters?
+
+Ans. Parameters are quantities that are optimized by the model during the training process (e.g. weights of a neural network). Hyperparameters are quantities related to the learning procedure, which are not optimized during training, but are set by the user before the training starts (e.g. learning rate of the optimizer).
+
+ii. [E] Why is hyperparameter tuning important?
+
+Ans. Hyperparameter tuning consists of finding a set of optimal hyperparameter values for a learning algorithm while applying this optimized algorithm to any data set. That combination of hyperparameters maximizes the model’s performance, minimizing a predefined loss function to produce better results with fewer errors. Note that the learning algorithm optimizes the loss based on the input data and tries to find an optimal solution within the given setting. However, hyperparameters describe this setting exactly.
+
+Eg. of Hyperparameters for a NN:
+
+a) Number of hidden layers.
+
+b) Number of nodes/neurons per layer
+
+c) Learning Rate
+
+d) Momentum
+
+Most important ones as recommended by Andrew NG are: learning rate, adam's beta parameter, hidden units.  
+
+Some techniques to perform hyperparameter tuning are: random sampling from a grid of hyperparameter space, coarse to fine sampling.  
+
+Reference: https://www.anyscale.com/blog/what-is-hyperparameter-tuning
+
+iii. [M] Explain algorithm for tuning hyperparameters.
+
+Ans. Two fairly naive, but commonly used algorithms for tuning hyperparameters are:  
+
+•  Grid Search – given a set of values for each hyperparameter, the algorithm looks over each possible combination.  
+
+•  Random Search – given an interval of possible hyperparameter values, the algorithm trains the model by sampling randomly from the provided ranges.  
+
+One major drawback of these two approaches is that they are uninformative – the choice of the  next set of parameters is independent of the performance of the previous choice.  This serves as a  motivating factor as to why someone might consider using Bayesian Optimization.
+
+In Bayesian Optimization, we don't have any assumption about the **convexity**, **analytic** form or the **optimization cost** of the function. This is a general technique. We can only compute $f(x)$ at some $x$'s.
+
+Since, we don't have any mathematical expression for $f(x)$, we use a **surrogate model to approximate**  $f(x)$. Usually, Gaussian Processes (GPs) are a good choice for surrogate models. They provide a good model that best fits the data $\mu(x)$ and produce uncertainty estimates $\sigma(x)$ for each x.
+
+We also require a **acquisition model** to decide which $x$ to sample next based on the **surrogate model**. It makes a choice whether to explore the already visited regions to optimize $f$ or *explore*  unknown regions. This is popularly known as the **exploration-exploitation trade-off**. The most common choice for this model is the **upper-confidence-bound** (UCB). It is defined as:
+
+$a_{UCB}(x, \lambda) = \mu(x) + \lambda\sigma(x)$
+
+ where $\mu(x)$ is the mean of the GP posterior at $x$, $\sigma(x)$ is the standard deviation of the GP posterior at $x$, and $\lambda$ is a hyperparameter which trades-off the two (this is user set, and not optimized). As we discussed, the affinity for each hyperparameter $x$ is a weighted sum of the expected performance and the uncertainty surrounding the choice of this parameter.
+
+The overall pseudocode is:
+
+![image](https://github.com/Anirudh257/Solutions-to-Machine-Learning-Interviews-Book-By-Chip-Huyen/assets/16001446/e8fe92c9-49e1-4863-a60f-c7d5ec0efa7c)
+
+
+Reference: 
+
+* https://ekamperi.github.io/machine%20learning/2021/05/08/bayesian-optimization.html
+
+* https://towardsdatascience.com/shallow-understanding-on-bayesian-optimization-324b6c1f7083
+
+* https://github.com/zafstojano/ml-interview-questions-and-answers
