@@ -207,7 +207,12 @@ Ans. In classification, the output is a discrete category label, but in regressi
 
 ii.  [E] Can a classification problem be turned into a regression problem and vice versa?
 
-Ans. While it is technically possible to do so, there are multiple reasons to avoid it, like:
+Ans. It is technically possible to convert a regression problem into classification by defining a threshold. For example, if I have a dataset of images with labels of their cloudiness level from 0 to 5 I could define a threshold, i.e. 2.5 and use it to turn the continuous values into discrete one, and use those discrete values as classes (cloudiness level < 2.5 equal image without clouds) but the opposite is definitely not possible.
+
+But converting from classification to regression is not possible as we can't define an order. (Cat < Dog doesn't make sense)
+
+
+However, there are multiple reasons to avoid it, like:
 
 * Loss of information by binning.
 
@@ -221,4 +226,28 @@ Ans. While it is technically possible to do so, there are multiple reasons to av
 
 * One can end up with a badly (conditionally) calibrated regression model, ie biased. (This can also happen for stdandard regression techniques.)
 
-Reference: https://stats.stackexchange.com/questions/565537/is-there-ever-a-reason-to-solve-a-regression-problem-as-a-classification-problem
+Reference: 
+
+* https://stats.stackexchange.com/questions/565537/is-there-ever-a-reason-to-solve-a-regression-problem-as-a-classification-problem
+
+* https://stackoverflow.com/questions/57268169/could-i-turn-a-classification-problem-into-regression-problem-by-encoding-the-cl
+
+* https://datascience.stackexchange.com/questions/70313/how-to-make-a-classification-problem-into-a-regression-problem
+
+10.  Parametric vs. non-parametric methods.
+    
+ i.  [E] What’s the difference between parametric methods and non-parametric methods? Give an example of each method.
+ 
+ Ans.  Parametric model is a method with a fixed size of parameters while a non-parametric model can have potentially infinite size of parameters. In non-parametric methods, the complexity of the model grows with the number of training data samples. For example, linear regression, logistic regression and linear Support-vector machines are parametric models having a fixed size of parameters (weight coefficient). But the KNN, decision trees, or SVM with RBF kernel SVMS are non-parametric as the number of parameters increases with the training data size. **However, as noted in The Handbook of Nonparametric Statistics 1 (1962) on p. 2: “A precise and universally acceptable definition of the term ‘nonparametric’ is not presently available**.
+ 
+Reference: https://sebastianraschka.com/faq/docs/parametric_vs_nonparametric.html
+ 
+ii. [H] When should we use one and when should we use the other?
+
+Ans. It depends on the following aspects:
+
+a) **Dataset size**: Non-parametric methods are more applicable in cases when we have larger datasets that provide sufficient coverage s.t. we can derive the entire model structure based on the data alone. Otherwise, if the datasets are not large enough, we can inject a prior into our training process by fixing the parametric form of the model. This allows the optimization procedure to only focus on inferring the parameter values, and not having to derive the entire model structure.
+
+b) **Inference time requirements**: Since parametric models use a fixed parametrization, they are more applicable in cases when we need consistent inference time guarantees. In contrast, the prediction time of non-parametric methods might depend on the dataset size (e.g. finding k-nearest neighbors, iterating over all support vectors, \ldots)
+
+Reference: https://github.com/starzmustdie/ml-interview-questions-and-answers
