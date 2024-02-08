@@ -1,3 +1,4 @@
+
 # 7.1 Basics
 
 1. [E] Explain supervised, unsupervised, weakly supervised, semi-supervised, and active learning.
@@ -197,3 +198,27 @@ Reference:
 * https://towardsdatascience.com/shallow-understanding-on-bayesian-optimization-324b6c1f7083
 
 * https://github.com/zafstojano/ml-interview-questions-and-answers
+
+9. Classification vs. regression.
+
+i.  [E] What makes a classification problem different from a regression problem?
+
+Ans. In classification, the output is a discrete category label, but in regression, it is a continuous value.
+
+ii.  [E] Can a classification problem be turned into a regression problem and vice versa?
+
+Ans. While it is technically possible to do so, there are multiple reasons to avoid it, like:
+
+* Loss of information by binning.
+
+* Continuous targets have an order but classification classes don't.
+
+* Continuous targets usually have some kind of smoothness: Proximity in feature space (for continuous features) means proximity in target space.
+
+*   All this loss of information is accompanied by possibly more parameters in the model, e.g. logistic regression has number of coefficients proportional to number of classes.
+
+* The binning obfuscates whether one is trying to predict the expectation/mean or a quantile.
+
+* One can end up with a badly (conditionally) calibrated regression model, ie biased. (This can also happen for stdandard regression techniques.)
+
+Reference: https://stats.stackexchange.com/questions/565537/is-there-ever-a-reason-to-solve-a-regression-problem-as-a-classification-problem
