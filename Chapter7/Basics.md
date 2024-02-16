@@ -1,4 +1,5 @@
 
+
 # 7.1 Basics
 
 1. [E] Explain supervised, unsupervised, weakly supervised, semi-supervised, and active learning.
@@ -251,3 +252,17 @@ a) **Dataset size**: Non-parametric methods are more applicable in cases when we
 b) **Inference time requirements**: Since parametric models use a fixed parametrization, they are more applicable in cases when we need consistent inference time guarantees. In contrast, the prediction time of non-parametric methods might depend on the dataset size (e.g. finding k-nearest neighbors, iterating over all support vectors, \ldots)
 
 Reference: https://github.com/starzmustdie/ml-interview-questions-and-answers
+
+11. [M] Why does ensembling independently trained models generally improve performance?
+
+Ans. In ensemble learning, we combine the predictions from two or more models. It improves the performance and makes the models more robust.
+
+For example, in K-fold validation, we train new models on different splits of the training data and compute the average accuracy. But the average accuracy doesn't give a complete picture of the performance. 
+
+Some models performed better on some subsets of data and some models performed worse on different subsets of data. Combining different predictions of the model reduces the standard deviation in the errors and smooths the expected performance of the model.
+
+Reference: 
+
+* https://machinelearningmastery.com/why-use-ensemble-learning/
+
+* https://machinelearningmastery.com/ensemble-methods-for-deep-learning-neural-networks/
